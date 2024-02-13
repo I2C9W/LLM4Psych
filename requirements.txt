@@ -5,3 +5,4 @@ seaborn
 sklearn
 requests
 tqdm
+scikit-learn
