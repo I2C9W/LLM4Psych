@@ -5,51 +5,7 @@ from tqdm import tqdm
 import pandas as pd
 
 #%%
-output_json = "results_extractsuicid_nogram_llama2-70b_german_TF.jsonl"
-
-grammar = r"""
-root   ::= allrecords
-value  ::= object | array | string | number | ("true" | "false" | "null") ws
-
-allrecords ::= (
-#  "{" ws "\"suizidal\":" ws (record)
-    "{" ws "\"suizidal\":" ws ("null" | record)
-  ws "}"
-  ws
-)
-
-record ::= (
-    "{" ws "\"Ist der Patient suizidal?\":" ws string
-     "," ws "\"Ist der Patient suizidal?\":" ws ("true" | "false") ws 
-    ws "}"
-    ws
-)
-
-object ::=
-  "{" ws (
-            string ":" ws value
-    ("," ws string ":" ws value)*
-  )? "}" ws
-
-array  ::=
-  "[" ws (
-            value
-    ("," ws value)*
-  )? "]" ws
-
-string ::=
-  "\"" (
-    [^"\\] |
-    "\\" (["\\/bfnrt] | "u" [0-9a-fA-F] [0-9a-fA-F] [0-9a-fA-F] [0-9a-fA-F]) # escapes
-  )* "\"" ws
-
-number ::= ("-"? ([0-9] | [1-9] [0-9]*)) ("." [0-9]+)? ([eE] [-+]? [0-9]+)? ws
-
-# Optional space: by convention, applied in this grammar after literal chars when allowed
-ws ::= ([ \t\n])?
-"""
-# prompt snippets
-# You are a helpful medical assistant. You will be provided with a patient report. Strictly give the information from the report the user requests. Strictly keep with the content of the report, do not make anything up. You will be provided with definitions, that help answering the questions. Do not answer the questions with content of the definitions. 
+output_json = "youroutputfilename.jsonl"
 
 prompt = """[INST] <<SYS>>
 Sie sind ein aufmerksamer, medizinischer Assistent von OpenAI. Im Folgenden finden Sie eine psychiatrische Anamnese. Bitte beantworten Sie die Frage. 
@@ -66,7 +22,7 @@ Ist der Patient suizidal? Antworte mit true oder false.
 [/INST]"""
 
 # %%
-df = pd.read_csv("merged_GT_3.csv", dtype=str) #.dropna(subset="content")
+df = pd.read_csv("yourinputfilewithreports.csv", dtype=str) #.dropna(subset="content")
 #df = df[:15]
 #print(df.head(10))
 
