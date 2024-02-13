@@ -19,36 +19,15 @@ def parse(x):
     else:
         return "False"
 
-#%% 
-# Define result json to df function to -ALTERNATIVE WITH CoT output-
-# def result_json_to_df(json_path):
-#     symptoms = [
-#         "compl",
-#     ]
-#     with open(json_path, "r") as json_file:
-#         records = []
-#         for line in json_file:
-#             try:
-#                 llama_response = json.loads(line)
-#                 compl = llama_response["content"]  # Extract the value from "content"
-#                 report = llama_response.get("report", "")  # Extract the report, default to empty string if not present
-#                 records.append((report, compl))
-#             except json.JSONDecodeError:
-#                 continue
-
-#     pred_df = pd.DataFrame(records, columns=["report", "compl"])
-#     #pred_df[compl] = pred_df[compl].applymap(parse)
-#     return pred_df
-
 # %%
 # load ground truth data
-#gt_df = pd.read_excel("/mnt/bulk/isabella/llamaproj/endo/reports_GT.xlsx")
-gt_df = pd.read_csv("merged_GT_3.csv")
+#gt_df = pd.read_excel("filegtpath.xlsx")
+gt_df = pd.read_csv("filegtpath.csv")
 gt_df.head()
 
 #%%
 # load predicted df
-filename="suizidal_llama2_sauerkraut_70b_cot_3s.csv"
+filename="filewithmodeloutput.csv"
 pred_df = pd.read_csv(f"results\\{filename}")
 pred_df.head()
 
