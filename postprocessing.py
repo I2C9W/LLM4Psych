@@ -8,7 +8,7 @@ import chardet
 #ADAPT
 #######################################################################################################
 # Path to your JSONL file
-file_path = 'C:\\Users\\WIESTISAB\\LLM\\psych_nogram\\experimentalsetup1\\results-llama2_sauerkraut_70b_normal.jsonl'
+file_path = 'pathtoyourmodeloutputfile.jsonl'
 
 # Define patterns and other words
 pattern = r"true|false|ja|nein"
@@ -25,7 +25,7 @@ default = 'false'
 # pattern = r"ja|nein" + "|".join(re.escape(word) for word in other_words)
 #other_words = ['Sofia', 'RED', 'Catalyst']
 
-csv_file_path = f'{variable}_llama2_sauerkraut_70b_normal.csv'
+csv_file_path = f'{variable}.csv'
 #######################################################################################################
 
 # Initialize lists to hold the data
@@ -106,16 +106,4 @@ print(df)
 #%%
 #save to csv
 
-df.to_csv(f'C:\\Users\\WIESTISAB\\LLM\\psych_nogram\\experimentalsetup1\\results\\{csv_file_path}')
-
-# %%
-#import os
-
-# # Get the current working directory
-# current_directory = os.getcwd()
-
-# # Full path to the CSV file
-# csv_file_path = os.path.join(current_directory, 'complnogram_mistral.csv')
-
-# print("CSV file is saved at:", csv_file_path)
-# # %%
+df.to_csv(f'{csv_file_path}')
