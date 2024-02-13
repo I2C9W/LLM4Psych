@@ -25,6 +25,10 @@ It runs on the basis of llama.cpp. Please set it up according to the respective 
 #### Usage
 Run the script from the command line by specifying the path to your input file data
 
+```bash
+python extractsuicidality.py
+ ```
+
 ### Postprocessing Script (`postprocessing.py`)
 This Python script extracts the desired answer format from the original LLM answers. 
 
@@ -32,7 +36,7 @@ This Python script extracts the desired answer format from the original LLM answ
 Specify the path to your LLM output script and specify your extraction pattern (e.g. yes|no) Run the script from the command line. 
     
 ```bash
-python accuracy_comparison.py path/to/ground_truth.csv
+python postprocessing.py
  ```
 
 
@@ -43,9 +47,9 @@ Enter the path to your groundtruth file as well as the path to your model output
 
 #### Usage
 
-Run the script from the command line by specifying the path to your ground truth data and predictions:
+Run the script from the command line after specifying the path to your ground truth data and predictions:
 
 ```bash
-python confusionmatrix.py path/to/ground_truth.csv path/to/predictions.jsonl
+python confusionmatrix.py
 ```
 
