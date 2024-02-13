@@ -28,9 +28,10 @@ Run the script from the command line by specifying the path to your MIMIC ground
 python extract_mimic_features_from_report.py path/to/MIMIC_groundtruth.csv
 ```
 
-### Confusion Matrix Analysis Script (`confusionmatrix.py`)
+### Confusion Matrix Analysis Script (`analysis.py`)
 
 This Python script generates confusion matrices for machine learning model predictions, comparing predictions against a ground truth dataset to visualize the performance of a classification model.
+Enter the path to your groundtruth file as well as the path to your model output file. 
 
 #### Usage
 
