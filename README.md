@@ -18,15 +18,12 @@ Place your dataset files in accessible paths on your system.
 
 ## Script-Specific Instructions
 
-### MIMIC Features Extraction Script (`extract_mimic_features_from_report.py`)
-This Python script extracts and analyzes specific medical features from patient reports using a predefined grammar and prompt.
+### Suicidality Extraction Script (`extractsuicidality.py`)
+This Python script extracts and analyzes specific medical features from patient reports using a predefined prompt.
+It runs on the basis of llama.cpp. Please set it up according to the respective github repository and start the llama server. (--> https://github.com/ggerganov/llama.cpp/)
 
 #### Usage
-Run the script from the command line by specifying the path to your MIMIC ground truth data:
-    
-```bash
-python extract_mimic_features_from_report.py path/to/MIMIC_groundtruth.csv
-```
+Run the script from the command line by specifying the path to your input file data
 
 ### Confusion Matrix Analysis Script (`analysis.py`)
 
