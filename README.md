@@ -25,6 +25,17 @@ It runs on the basis of llama.cpp. Please set it up according to the respective 
 #### Usage
 Run the script from the command line by specifying the path to your input file data
 
+### Postprocessing Script (`postprocessing.py`)
+This Python script extracts the desired answer format from the original LLM answers. 
+
+#### Usage
+Specify the path to your LLM output script and specify your extraction pattern (e.g. yes|no) Run the script from the command line. 
+    
+```bash
+python accuracy_comparison.py path/to/ground_truth.csv
+ ```
+
+
 ### Confusion Matrix Analysis Script (`analysis.py`)
 
 This Python script generates confusion matrices for machine learning model predictions, comparing predictions against a ground truth dataset to visualize the performance of a classification model.
@@ -38,12 +49,3 @@ Run the script from the command line by specifying the path to your ground truth
 python confusionmatrix.py path/to/ground_truth.csv path/to/predictions.jsonl
 ```
 
-### Accuracy Comparison Script (`accuracy_comparison.py`)
-This Python script compares the accuracy of different machine learning models, calculating and visualizing the accuracy of each model for various symptoms.
-
-#### Usage
-Run the script from the command line with the path to your ground truth data:
-    
-```bash
-python accuracy_comparison.py path/to/ground_truth.csv
- ```
